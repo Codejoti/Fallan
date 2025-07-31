@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hey Shruti 🌹</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #clickButton {
+      padding: 20px 40px;
+      background-color: #ff4b6e;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    #clickButton:hover {
+      transform: scale(1.1);
+    }
+
+    .rose {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://i.imgur.com/Jjvv1Fv.png');
+      background-size: cover;
+      pointer-events: none;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="clickButton">Hey Shruti, Click Here 🌹</button>
+
+  <script>
+    const button = document.getElementById('clickButton');
+
+    button.addEventListener('click', () => {
+      for (let i = 0; i < 1000; i++) {
+        const rose = document.createElement('div');
+        rose.classList.add('rose');
+        rose.style.left = Math.random() * window.innerWidth + 'px';
+        rose.style.animationDuration = (3 + Math.random() * 2) + 's';
+        rose.style.animationDelay = Math.random() * 5 + 's';
+        document.body.appendChild(rose);
+
+        // Remove rose after animation to avoid performance issues
+        setTimeout(() => {
+          rose.remove();
+        }, 7000);
+      }
+    });
+  </script>
+
+</body>
+</html>
